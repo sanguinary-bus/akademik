@@ -1,0 +1,24 @@
+<tr th:fragment="dosen-row-add">
+  <td class="align-middle">
+    <input type="text" data-include-add="" name="kode" value="" />
+  </td>
+  <td class="align-middle">
+    <input type="text" data-include-add="" name="nama" value="" />
+  </td>
+  <td class="align-middle">
+    <input type="text" data-include-add="" name="alamat" value="" />
+  </td>
+  <td class="align-middle">
+    <button
+      class="btn"
+      th:attr="hx-post=@{'/dosen/index'}, hx-target='#dosen', hx-include='input[data-include-add]'"
+    >
+      Save
+    </button>
+  </td>
+  <td class="align-middle">
+    <button class="btn" th:attr="hx-get=@{'/dosen/index'}, hx-target='#dosen'">
+      Cancel
+    </button>
+  </td>
+</tr>

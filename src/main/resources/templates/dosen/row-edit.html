@@ -1,0 +1,37 @@
+<tr th:attr="id='dosen-id-' + ${dosen.kode}">
+  <td th:text="${dosen.kode}" class="align-middle"></td>
+  <td class="align-middle">
+    <input
+      type="text"
+      th:attr="data-include-edit=${dosen.kode}"
+      name="nama"
+      th:value="${dosen.nama}"
+    />
+  </td>
+  <td class="align-middle">
+    <input
+      type="text"
+      th:attr="data-include-edit=${dosen.kode}"
+      name="alamat"
+      th:value="${dosen.alamat}"
+    />
+  </td>
+  <td class="align-middle">
+    <button
+      class="btn"
+      th:attr="hx-put=@{'/dosen/index/' + ${dosen.kode}}, hx-target='#dosen-id-' + ${dosen.kode}, hx-include='input[data-include-edit=\'' + ${dosen.kode} + '\']'"
+      hx-swap="outerHTML"
+    >
+      Save
+    </button>
+  </td>
+  <td class="align-middle">
+    <button
+      class="btn"
+      th:attr="hx-get=@{'/dosen/index/' + ${dosen.kode}}, hx-target='#dosen-id-' + ${dosen.kode}"
+      hx-swap="outerHTML"
+    >
+      Cancel
+    </button>
+  </td>
+</tr>

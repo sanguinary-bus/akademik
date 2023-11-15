@@ -1,0 +1,23 @@
+<tr th:fragment="dosen-row(item)" th:attr="id='dosen-id-' + ${dosen.kode}">
+  <td th:text="${dosen.kode}" class="align-middle"></td>
+  <td th:text="${dosen.nama}" class="align-middle"></td>
+  <td th:text="${dosen.alamat}" class="align-middle"></td>
+  <td class="align-middle">
+    <button
+      class="btn"
+      th:attr="hx-get=@{'/dosen/index/edit/' + ${dosen.kode}}, hx-target='#dosen-id-' + ${dosen.kode}"
+      hx-swap="outerHTML"
+    >
+      Edit
+    </button>
+  </td>
+  <td class="align-middle">
+    <button
+      class="btn"
+      th:attr="hx-delete=@{'/dosen/index/' + ${dosen.kode}}, hx-target='#dosen', hx-confirm='Are you sure you want to delete \'' + ${dosen.kode} + '\'?'"
+      hx-swap="outerHTML"
+    >
+      Delete
+    </button>
+  </td>
+</tr>

@@ -1,0 +1,6 @@
+<tbody id="table-body">
+  <tr th:replace="~{dosen/row-add :: dosen-row-add}"></tr>
+  <th:block th:each="dosen : ${dosenList}">
+    <tr th:replace="~{dosen/row :: dosen-row(${dosen})}"></tr>
+  </th:block>
+</tbody>

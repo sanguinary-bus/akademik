@@ -1,0 +1,27 @@
+<div th:fragment="dosen" id="dosen">
+  <h1 class="mb-4">Dosen</h1>
+  <button
+    hx-get="/dosen/index/add"
+    hx-target="#table-body"
+    hx-swap="outerHTML"
+    class="btn"
+  >
+    Add
+  </button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>kode</th>
+        <th>nama</th>
+        <th>alamat</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="table-body">
+      <th:block th:each="dosen : ${dosenList}">
+        <tr th:replace="~{dosen/row :: dosen-row(${dosen})}"></tr>
+      </th:block>
+    </tbody>
+  </table>
+</div>
